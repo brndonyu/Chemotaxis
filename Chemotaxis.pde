@@ -7,7 +7,7 @@ void setup()
  {     
  	size(1600,800);
  	background(255);
- 	horde = new Bacteria [20];
+ 	horde = new Bacteria [16];
  	for(int i = 0; i < horde.length; i++){
  		if(counter > 4){
  			counter = 1;
@@ -112,6 +112,7 @@ void setup()
  		line(slimeX+55,slimeY,slimeX+55,slimeY+15);
  		arc(slimeX+70,slimeY+15,30,30,PI/2,PI);
  		strokeWeight(0);
+ 		strokeWeight(1);
  		fill(107, 230, 46);
  		ellipse(slimeX+70,slimeY+30,10,10);
 
