@@ -1,32 +1,85 @@
  //declare bacteria variables here   
 Bacteria [] horde;
 
- void setup()   
+void setup()   
  {     
- 	size(1200,900);
+ 	size(1600,900);
  	background(255);
- 	horde = new Bacteria [100];
+ 	horde = new Bacteria [20];
  	for(int i = 0; i < horde.length; i++){
+
  		horde[i] = new Bacteria();
  	} 
  }   
  void draw()   
  {    
- 	//move the bacteria
  	background(255);
+
+  strokeWeight(1);
+  //trees
+   fill(172, 115, 57);
+   rect(150,0,200,900);
+   rect(1250,0,200,900);
+   
+   //brown ends
+   //top
+   rect(350,250,250,100);
+   rect(1000,250,250,100);
+   //bottom
+   rect(350,600,250,100);
+   rect(1000,600,250,100);
+   
+   // green ends + center
+   //top
+   fill(83, 255, 26);
+   rect(150,250,200,100);
+   rect(600,250,400,100);
+   rect(1250,250,200,100);
+   //bottom
+   rect(150,600,200,100);
+   rect(600,600,400,100);
+   rect(1250,600,200,100);
+
+    //portals
+    fill(0);
+    //top
+    rect(175,100,150,150,10,10,0,0);
+    rect(1275,100,150,150,10,10,0,0);
+    //bottom
+    rect(175,450,150,150,10,10,0,0);
+    rect(1275,450,150,150,10,10,0,0);
+    
+    strokeWeight(3);
+    fill(172, 115, 57);
+    ladder(525,190);
+    ladder(925,540);
  	for(int i = 0; i < horde.length; i++){
  		horde[i].show();
  		horde[i].hop();
  	}
  }
  
+ void ladder(int x, int y){
+  //bars
+  rect(x,y,25,325);
+  rect(x+125,y,25,325);
+  
+  //handles
+  rect(x-25,y+25,200,25);
+  rect(x-25,y+25+(250/4),200,25);
+  rect(x-25,y+25+(500/4),200,25);
+  rect(x-25,y+25+(750/4),200,25);
+  rect(x-25,y+25+(1000/4),200,25);
+  
+}
+
  class Bacteria    
  {     
  	int slimeX, slimeY;
 
  	void Bacteria(){
- 		slimeX = 0;
- 		slimeY = 0;
+ 		slimeX = x;
+ 		slimeY = y;
 
  	}
 
@@ -45,7 +98,7 @@ Bacteria [] horde;
  		ellipse(slimeX+70,slimeY+30,10,10);
 
  		//eyes
- 		fill(230, 221, 46);
+ 		fill(255, 255, 0);
  		rect(slimeX+10,slimeY+12,12,12);
  		rect(slimeX+28,slimeY+12,12,12);
 
@@ -84,47 +137,4 @@ Bacteria [] horde;
  		}
  	}
 
- }
-
- void mousePressed(){
- 	/*
- 	fill(107, 230, 46);
- 	strokeWeight(1);
- 	rect(mouseX, mouseY, 50, 50, 200,200, 18, 18);
-
- 	strokeWeight(3);
- 	fill(255,255,255,0);
- 	arc(mouseX+40,mouseY,30,30,PI,2*PI);
- 	line(mouseX+55,mouseY,mouseX+55,mouseY+15);
- 	arc(mouseX+70,mouseY+15,30,30,PI/2,PI);
- 	strokeWeight(0);
- 	fill(107, 230, 46);
- 	ellipse(mouseX+70,mouseY+30,10,10);
-
- 	//eyes
- 	fill(230, 221, 46);
- 	rect(mouseX+10,mouseY+12,12,12);
- 	rect(mouseX+28,mouseY+12,12,12);
-
-	//left eye
- 	fill(0);
- 	rect(mouseX+10,mouseY+12,4,4);
- 	rect(mouseX+18,mouseY+12,4,4);
- 	rect(mouseX+10,mouseY+20,4,4);
- 	rect(mouseX+18,mouseY+20,4,4);
-
- 	//right eye
- 	rect(mouseX+28,mouseY+12,4,4);
- 	rect(mouseX+36,mouseY+12,4,4);
- 	rect(mouseX+28,mouseY+20,4,4);
- 	rect(mouseX+36,mouseY+20,4,4);
-
- 	//smile
- 	arc(mouseX+20,mouseY+30,10,15,0,PI);
- 	arc(mouseX+30,mouseY+30,10,15,0,PI);
-
- 	fill(107, 230, 46);
- 	arc(mouseX+20,mouseY+30,10,13,0,PI);
- 	arc(mouseX+30,mouseY+30,10,13,0,PI);
-*/
  }
