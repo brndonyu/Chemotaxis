@@ -1,14 +1,32 @@
  //declare bacteria variables here   
 Bacteria [] horde;
-
+int x;
+int y;
+int counter = 1;
 void setup()   
  {     
- 	size(1600,900);
+ 	size(1600,800);
  	background(255);
  	horde = new Bacteria [20];
  	for(int i = 0; i < horde.length; i++){
-
- 		horde[i] = new Bacteria();
+ 		if(counter > 4){
+ 			counter = 1;
+ 		}
+ 		if(counter == 1){
+ 			x = 225;
+ 			y = 175;
+ 		}else if(counter == 2){
+ 			x = 1350;
+ 			y = 175;
+ 		}else if(counter == 3){
+ 			x = 225;
+ 			y = 525;
+ 		}else if(counter == 4){
+ 			x = 1350;
+ 			y = 525;
+ 		}
+ 		horde[i] = new Bacteria(x,y);
+ 		counter++;
  	} 
  }   
  void draw()   
@@ -77,7 +95,7 @@ void setup()
  {     
  	int slimeX, slimeY;
 
- 	void Bacteria(){
+ 	Bacteria(int x, int y){
  		slimeX = x;
  		slimeY = y;
 
